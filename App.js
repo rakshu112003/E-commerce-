@@ -1,24 +1,22 @@
-import { Fragment,useState } from "react";
-import Meals from "./Components/Meals/Meals";
-import Header from "./Components/Layout/Header";
-import Cart from "./Components/Cart/Cart";
+
+jsx
+import React, { useState } from 'react';
+import './index.css';
+
 function App() {
-  const [cartIsShown,setCartIsShown]=useState(false);
-  const showCartHandler =() =>{
-    setCartIsShown(true);
-  };
-  const hideCartHandler = ()=>{
-    setCartIsShown(false);
-  };
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(count + 1);
+
   return (
- <Fragment>
-  {cartIsShown && <Cart onClose={hideCartHandler}/>}
-      <Header onShowCart={showCartHandler} />
-      <main>
-        <Meals/>
-      </main>
-      </Fragment>
+    <div className="container">
+      <h1>Simple Counter App</h1>
+      <p>Count: {count}</p>
+ <button onClick={increment}>Increase Count</button>
+    </div>
   );
 }
 
 export default App;
+
+
